@@ -1,10 +1,16 @@
 "use strict";
 
+// DOM elements
+const btnNew = document.querySelector(".js-new-button"),
+ btnAsk = document.querySelector(".js-ask-button"),
+ btnStop = document.querySelector(".js-stop-button");
+
+// Variable declarations
 let deck = [];
 let shuffledDeck = [];
 
 // Creating deck cards. C: Clubs, D: Diamonds, H: Hearts, S: Spades
-const cardTypes = ["C", "D", "H", "S"], 
+const cardTypes = ["C", "D", "H", "S"],
   specialCards = ["J", "Q", "K", "A"];
 
 /* Function to shuffle the deck: this loop iterates over an array from back to front bypassing index 0. Each iteration generates a random number (index variable) ranging between 0 and the counter variable (last item), and then swaps both values to suffle them.*/
@@ -36,12 +42,10 @@ const createDeck = () => {
 
   shuffledDeck = shuffleDeck(deck);
   console.log("Mazo barajado", shuffledDeck);
-  return shuffledDeck; 
+  return shuffledDeck;
 };
 
-const startGame = () => {
-  shuffledDeck = createDeck();
-}
+createDeck();
 
 const askCard = () => {
   // return deck.length === 0 ? alert("There are no more cards on the deck :(") : shuffledDeck.pop
@@ -49,9 +53,25 @@ const askCard = () => {
     alert("There are no more cards on the deck :(");
   }
   const card = shuffledDeck.pop();
-  console.log({card});
+  console.log({ card });
   return card;
 };
 
-startGame();
 askCard();
+
+const calculateCardValue = (card) => {
+  const cardValue = card.substring(0, card.length - 1);
+  console.log({ cardValue });
+
+  let points = 0;
+  if (isNaN(cardValue)) {
+    points = cardValue === "A" ? 11 : 10;
+    console.log("No es un numero");
+  } else {
+    points = parseInt(cardValue);
+  }
+  console.log({ points });
+  return points;
+};
+
+calculateCardValue("3D");
