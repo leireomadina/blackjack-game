@@ -1,9 +1,10 @@
 "use strict";
 
 let deck = [];
+let shuffledDeck = [];
 
-// Creating deck cards
-const cardTypes = ["C", "D", "H", "S"], // C: Clubs, D: Diamonds, H: Hearts, S: Spades
+// Creating deck cards. C: Clubs, D: Diamonds, H: Hearts, S: Spades
+const cardTypes = ["C", "D", "H", "S"], 
   specialCards = ["J", "Q", "K", "A"];
 
 /* Function to shuffle the deck: this loop iterates over an array from back to front bypassing index 0. Each iteration generates a random number (index variable) ranging between 0 and the counter variable (last item), and then swaps both values to suffle them.*/
@@ -23,6 +24,7 @@ const shuffleDeck = (array) => {
 
 const createDeck = () => {
   deck = [];
+
   for (let cardType of cardTypes) {
     for (let i = 2; i <= 10; i++) {
       deck.push(i + cardType);
@@ -31,9 +33,25 @@ const createDeck = () => {
       deck.push(specialCard + cardType);
     }
   }
-  shuffleDeck(deck);
-  return deck; 
+
+  shuffledDeck = shuffleDeck(deck);
+  console.log("Mazo barajado", shuffledDeck);
+  return shuffledDeck; 
 };
 
-createDeck();
-console.log(deck);
+const startGame = () => {
+  shuffledDeck = createDeck();
+}
+
+const askCard = () => {
+  // return deck.length === 0 ? alert("There are no more cards on the deck :(") : shuffledDeck.pop
+  if (shuffledDeck.length === 0) {
+    alert("There are no more cards on the deck :(");
+  }
+  const card = shuffledDeck.pop();
+  console.log({card});
+  return card;
+};
+
+startGame();
+askCard();
