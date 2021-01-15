@@ -9,6 +9,8 @@ const btnNew = document.querySelector(".js-new-button"),
 let deck = [];
 let shuffledDeck = [];
 
+let playersPoints = []; // makes the game logic scalable in case we add more players in the future
+
 // Creating deck cards. C: Clubs, D: Diamonds, H: Hearts, S: Spades
 const cardTypes = ["C", "D", "H", "S"],
   specialCards = ["J", "Q", "K", "A"];
@@ -77,8 +79,11 @@ const calculateCardValue = (card) => {
 // calculateCardValue("3D");
 
 const playersTurn = () => {
-  console.log("Event listened");
   const card = askCard();
+  
+  let playerPoints = 0;
+  playerPoints = playerPoints + calculateCardValue(card);
+  console.log({playerPoints});
 };
 
 
