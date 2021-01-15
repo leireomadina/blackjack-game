@@ -57,7 +57,7 @@ const askCard = () => {
   return card;
 };
 
-askCard();
+// askCard();
 
 const calculateCardValue = (card) => {
   const cardValue = card.substring(0, card.length - 1);
@@ -74,4 +74,13 @@ const calculateCardValue = (card) => {
   return points;
 };
 
-calculateCardValue("3D");
+// calculateCardValue("3D");
+
+const playersTurn = () => {
+  console.log("Event listened");
+  const card = askCard();
+};
+
+
+// Events
+btnAsk.addEventListener("click", playersTurn);
