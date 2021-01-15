@@ -5,6 +5,9 @@ const btnNew = document.querySelector(".js-new-button"),
  btnAsk = document.querySelector(".js-ask-button"),
  btnStop = document.querySelector(".js-stop-button");
 
+const htmlPoints = document.querySelectorAll(".js-players-points");
+const divPlayersCards = document.querySelectorAll(".cards-container");
+
 // Variable declarations
 let deck = [];
 let shuffledDeck = [];
@@ -80,10 +83,17 @@ const calculateCardValue = (card) => {
 
 const playersTurn = () => {
   const card = askCard();
-  
+
   let playerPoints = 0;
   playerPoints = playerPoints + calculateCardValue(card);
   console.log({playerPoints});
+
+  htmlPoints[0].innerHTML = playerPoints;
+
+  const cardImage = document.createElement("img");
+  cardImage.src =`./assets/images/cards/${card}.png`;
+  cardImage.classList.add("card");
+  divPlayersCards[0].append(cardImage);
 };
 
 
