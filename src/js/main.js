@@ -12,11 +12,13 @@ const divPlayersCards = document.querySelectorAll(".cards-container");
 let deck = [];
 let shuffledDeck = [];
 
-let playersPoints = []; // makes the game logic scalable in case we add more players in the future
+let playerPoints = 0,
+  computerPoints = 0;
 
 // Creating deck cards. C: Clubs, D: Diamonds, H: Hearts, S: Spades
 const cardTypes = ["C", "D", "H", "S"],
   specialCards = ["J", "Q", "K", "A"];
+
 
 /* Function to shuffle the deck: this loop iterates over an array from back to front bypassing index 0. Each iteration generates a random number (index variable) ranging between 0 and the counter variable (last item), and then swaps both values to suffle them.*/
 const shuffleDeck = (array) => {
@@ -71,7 +73,6 @@ const calculateCardValue = (card) => {
   let points = 0;
   if (isNaN(cardValue)) {
     points = cardValue === "A" ? 11 : 10;
-    console.log("No es un numero");
   } else {
     points = parseInt(cardValue);
   }
@@ -84,18 +85,24 @@ const calculateCardValue = (card) => {
 const playersTurn = () => {
   const card = askCard();
 
-  let playerPoints = 0;
   playerPoints = playerPoints + calculateCardValue(card);
-  console.log({playerPoints});
-
-  htmlPoints[0].innerHTML = playerPoints;
+  htmlPoints[0].innerText = `${playerPoints} points`;
 
   const cardImage = document.createElement("img");
   cardImage.src =`./assets/images/cards/${card}.png`;
   cardImage.classList.add("card");
   divPlayersCards[0].append(cardImage);
+
+  if (playerPoints > 21) {
+    console.warn("Im so sorry, you lost. But keep trying!");
+    btnAsk.disabled = true;
+  }
 };
 
+const computersTurn = () => {
+
+};
 
 // Events
 btnAsk.addEventListener("click", playersTurn);
+// btnNew.addEventListener("click", startGame);
