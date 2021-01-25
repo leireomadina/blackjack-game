@@ -3,23 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Blackjack - Let's play!</title>
+    <meta name="description" content="Free blackjack game: play versus the computer and win!">
+    <meta name="keywords" content="blackjack, game, cards, deck">
+    <meta name="author" content="Leire Ordeñana Madina">
+    <title>Blackjack game | Let's play!</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/main.css" />
-    <link rel="icon" href="./assets/images/clubs.jpg" />
+    <link rel="stylesheet" href="./assets/css/main.css" type="text/css"/>
+    <link rel="icon" href="./assets/images/clubs.jpg" type="image/jpg" />
   </head>
   <body>
     <div class="page">
       <header class="page__header">
-        <h1>Blackjack</h1>
+        <h1 class="header-title">Blackjack</h1>
+        <p class="header-subtitle">Can you beat the computer? 😏</p>
       </header>
 
       <main class="page__main">
+        <section class="options">
+          <div class="options__container">
+            <button class="btn btn--new js-new-button" type="button">New Game</button>
+            <button class="btn js-ask-button" type="button">
+              Ask Card
+            </button>
+            <button class="btn js-stop-button" type="button">
+              Stop
+            </button>
+          </div>
+        </section>
+        <section>
+          <article class="player-template">
+            <div class="player-template__container">
+              <h2 class="player-template__title">Player 1</h2>
+              <p class="js-players-points">0 points</p>
+            </div>
+            <div class="cards-container">
+              <!-- <img src="./assets/images/cards/2C.png" alt="Imagen de una carta de valor 2C" title="Imagen de una carta de valor 2C" height="150px" class="player-template__card"> -->
+            </div>
+          </article>
+          <article class="player-template">
+            <div class="player-template__container">
+              <h2 class="player-template__title">Computer</h2>
+              <p class="js-players-points">0 points</p>
+            </div>
+            <div class="cards-container">
+              <!-- <img src="./assets/images/cards/2C.png" alt="Imagen de una carta de valor 2C" title="Imagen de una carta de valor 2C" height="150px" class="player-template__card"> -->
+            </div>
+          </article>
+        </section>
 
       </main>
 
       <footer class="page__footer">
-
+        <small class="footer-text"
+          >Made with <span class="footer-text__emoji">🤟🏼</span> by Leire
+          Ordeñana.</small
+        >
       </footer>
 
     </div>
