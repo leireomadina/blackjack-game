@@ -96,13 +96,45 @@ const playersTurn = () => {
   if (playerPoints > 21) {
     console.warn("Im so sorry, you lost. But keep trying!");
     btnAsk.disabled = true;
+    btnStop.disabled = true;
+    computersTurn(playerPoints);
+  } else if (playerPoints === 21) {
+    console.warn("Wow 21 points! You win this time :)");
+    btnAsk.disabled = true;
+    btnStop.disabled = true;
+    computersTurn(playerPoints);
   }
 };
 
-const computersTurn = () => {
+const handleFinishTurn = () => {
+  btnAsk.disabled = true;
+  btnStop.disabled = true;
+  computersTurn(playerPoints);
+}
 
+const computersTurn = ( minPoints ) => {
+
+  do {
+    const card = askCard();
+
+    computerPoints = computerPoints + calculateCardValue(card);
+    htmlPoints[1].innerText = `${computerPoints} points`;
+  
+    const cardImage = document.createElement("img");
+    cardImage.src =`./assets/images/cards/${card}.png`;
+    cardImage.classList.add("card");
+    divPlayersCards[1].append(cardImage);
+
+    if (minPoints > 21) {
+      break;
+    }
+
+   } while(
+    (computerPoints < minPoints) && (minPoints <= 21)
+   );
 };
 
 // Events
 btnAsk.addEventListener("click", playersTurn);
+btnStop.addEventListener("click", handleFinishTurn)
 // btnNew.addEventListener("click", startGame);
