@@ -47,7 +47,7 @@ const createDeck = () => {
   }
 
   shuffledDeck = shuffleDeck(deck);
-  console.log("Mazo barajado", shuffledDeck);
+  // console.log("Mazo barajado", shuffledDeck);
   return shuffledDeck;
 };
 
@@ -59,15 +59,14 @@ const askCard = () => {
     alert("There are no more cards on the deck :(");
   }
   const card = shuffledDeck.pop();
-  console.log({ card });
+  // console.log({ card });
   return card;
 };
 
-// askCard();
 
 const calculateCardValue = (card) => {
   const cardValue = card.substring(0, card.length - 1);
-  console.log({ cardValue });
+  // console.log({ cardValue });
 
   let points = 0;
   if (isNaN(cardValue)) {
@@ -75,11 +74,9 @@ const calculateCardValue = (card) => {
   } else {
     points = parseInt(cardValue);
   }
-  console.log({ points });
+  // console.log({ points });
   return points;
 };
-
-// calculateCardValue("3D");
 
 const playersTurn = () => {
   const card = askCard();
@@ -138,11 +135,23 @@ const computersTurn = (minPoints) => {
     } else {
       alert("Computer wins");
     }
-  }, 50);
+  }, 100);
 };
 
 const startNewGame = () => {
+  deck = createDeck();
 
+  playerPoints = 0;
+  computerPoints = 0;
+
+  htmlPoints[0].innerText = 0;
+  htmlPoints[1].innerText = 0;
+
+  divPlayersCards[1].innerHTML = "";
+  divPlayersCards[0].innerHTML = "";
+
+  btnAsk.disabled = false;
+  btnStop.disabled = false;
 };
 
 // Events
