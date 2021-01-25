@@ -2,8 +2,8 @@
 
 // DOM elements
 const btnNew = document.querySelector(".js-new-button"),
- btnAsk = document.querySelector(".js-ask-button"),
- btnStop = document.querySelector(".js-stop-button");
+  btnAsk = document.querySelector(".js-ask-button"),
+  btnStop = document.querySelector(".js-stop-button");
 
 const htmlPoints = document.querySelectorAll(".js-players-points");
 const divPlayersCards = document.querySelectorAll(".cards-container");
@@ -18,7 +18,6 @@ let playerPoints = 0,
 // Creating deck cards. C: Clubs, D: Diamonds, H: Hearts, S: Spades
 const cardTypes = ["C", "D", "H", "S"],
   specialCards = ["J", "Q", "K", "A"];
-
 
 /* Function to shuffle the deck: this loop iterates over an array from back to front bypassing index 0. Each iteration generates a random number (index variable) ranging between 0 and the counter variable (last item), and then swaps both values to suffle them.*/
 const shuffleDeck = (array) => {
@@ -89,7 +88,7 @@ const playersTurn = () => {
   htmlPoints[0].innerText = `${playerPoints} points`;
 
   const cardImage = document.createElement("img");
-  cardImage.src =`./assets/images/cards/${card}.png`;
+  cardImage.src = `./assets/images/cards/${card}.png`;
   cardImage.classList.add("card");
   divPlayersCards[0].append(cardImage);
 
@@ -110,31 +109,43 @@ const handleFinishTurn = () => {
   btnAsk.disabled = true;
   btnStop.disabled = true;
   computersTurn(playerPoints);
-}
+};
 
-const computersTurn = ( minPoints ) => {
-
+const computersTurn = (minPoints) => {
   do {
     const card = askCard();
 
     computerPoints = computerPoints + calculateCardValue(card);
     htmlPoints[1].innerText = `${computerPoints} points`;
-  
+
     const cardImage = document.createElement("img");
-    cardImage.src =`./assets/images/cards/${card}.png`;
+    cardImage.src = `./assets/images/cards/${card}.png`;
     cardImage.classList.add("card");
     divPlayersCards[1].append(cardImage);
 
     if (minPoints > 21) {
       break;
     }
+  } while (computerPoints < minPoints && minPoints <= 21);
 
-   } while(
-    (computerPoints < minPoints) && (minPoints <= 21)
-   );
+  setTimeout(() => {
+    if(computerPoints === minPoints) {
+      alert("No one wins :(");
+    } else if (minPoints > 21) {
+      alert("Computer wins");
+    } else if (computerPoints > 21) {
+      alert("You win! :D");
+    } else {
+      alert("Computer wins");
+    }
+  }, 50);
+};
+
+const startNewGame = () => {
+
 };
 
 // Events
 btnAsk.addEventListener("click", playersTurn);
-btnStop.addEventListener("click", handleFinishTurn)
-// btnNew.addEventListener("click", startGame);
+btnStop.addEventListener("click", handleFinishTurn);
+btnNew.addEventListener("click", startNewGame);
