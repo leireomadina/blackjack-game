@@ -1,5 +1,6 @@
 // Module pattern to avoid game cheating
-(() => {
+const myModule = (() => {
+
   "use strict";
   
   // DOM elements
@@ -18,12 +19,11 @@
   const cardTypes = ["C", "D", "H", "S"],
     specialCards = ["J", "Q", "K", "A"];
 
-  // let playerPoints = 0,
-  //   computerPoints = 0;
   let playersPoints = [];
 
   const initiateGame = ( numberOfPlayers = 2) => {
     deck = createDeck();
+    playersPoints = [];
     for (let i = 0; i < numberOfPlayers; i++) {
       playersPoints.push(0);
     }
@@ -57,7 +57,6 @@
     }
 
     shuffledDeck = shuffleDeck(deck);
-    // console.log("Mazo barajado", shuffledDeck);
     return shuffledDeck;
   };
 
@@ -69,18 +68,15 @@
   };
 
   const askCard = () => {
-    // return deck.length === 0 ? alert("There are no more cards on the deck :(") : shuffledDeck.pop
     if (shuffledDeck.length === 0) {
       alert("There are no more cards on the deck :(");
     }
     const card = shuffledDeck.pop();
-    // console.log({ card });
     return card;
   };
 
   const calculateCardValue = (card) => {
     const cardValue = card.substring(0, card.length - 1);
-    // console.log({ cardValue });
 
     let points = 0;
     if (isNaN(cardValue)) {
@@ -88,7 +84,6 @@
     } else {
       points = parseInt(cardValue);
     }
-    // console.log({ points });
     return points;
   };
 
@@ -101,11 +96,7 @@
 
   const playersTurn = () => {
     const card = askCard();
-
-    // playerPoints = playerPoints + calculateCardValue(card);
-    // htmlPoints[0].innerText = `${playerPoints} points`;
     const playerPoints = acumulatePoints( card, 0);
-
     renderCards(card, 0);
 
     if (playerPoints > 21) {
@@ -115,16 +106,44 @@
       computersTurn(playerPoints);
     } else if (playerPoints === 21) {
       console.warn("Wow 21 points! You win this time :)");
-      btnAsk.disabled = true;
-      btnStop.disabled = true;
+      disableButtons();
       computersTurn(playerPoints);
     }
   };
 
   const handleFinishTurn = () => {
+    disableButtons();
+    computersTurn(playersPoints[0]);
+  };
+
+  const disableButtons = () => {
     btnAsk.disabled = true;
     btnStop.disabled = true;
-    computersTurn(playerPoints);
+    btnAsk.classList.add("btn-disabled");
+    btnStop.classList.add("btn-disabled");
+  };
+
+  const enableButtons = () => {
+    btnAsk.disabled = false;
+    btnStop.disabled = false;
+    btnAsk.classList.remove("btn-disabled");
+    btnStop.classList.remove("btn-disabled");
+  };
+
+  const computersTurn = (minPoints) => {
+    let computerPoints = 0;
+
+    do {
+      const card = askCard();
+      computerPoints = acumulatePoints( card, playersPoints.length - 1);
+      renderCards(card, playersPoints.length - 1);
+
+      if (minPoints > 21) {
+        break;
+      }
+    } while (computerPoints < minPoints && minPoints <= 21);
+
+    defineWinner();
   };
 
   const defineWinner = () => {
@@ -142,49 +161,27 @@
         alert("Computer wins");
       }
     }, 100);
-  };
 
-  const computersTurn = (minPoints) => {
-    let computerPoints = 0;
-
-    do {
-      const card = askCard();
-
-      // computerPoints = computerPoints + calculateCardValue(card);
-      // htmlPoints[1].innerText = `${computerPoints} points`;
-      computerPoints = acumulatePoints( card, playersPoints.length - 1);
-
-      renderCards(card, playersPoints.length - 1);
-
-      if (minPoints > 21) {
-        break;
-      }
-    } while (computerPoints < minPoints && minPoints <= 21);
-
-    defineWinner();
+    disableButtons();
   };
 
   const startNewGame = () => {
-    // deck = createDeck();
     initiateGame();
 
-    // playerPoints = 0;
-    // computerPoints = 0;
+    htmlPoints.forEach(player => player.innerText = 0);
+    divPlayersCards.forEach(player => player.innerHTML = "");
 
-    /*
-    htmlPoints[0].innerText = 0;
-    htmlPoints[1].innerText = 0;
-
-    divPlayersCards[1].innerHTML = "";
-    divPlayersCards[0].innerHTML = "";
-
-    btnAsk.disabled = false;
-    btnStop.disabled = false;
-    */
+    enableButtons();
   };
 
   // Events
   btnAsk.addEventListener("click", playersTurn);
   btnStop.addEventListener("click", handleFinishTurn);
   btnNew.addEventListener("click", startNewGame);
+
+  // Accessible code
+  return {
+    newGame: initiateGame
+  };
+
 })();

@@ -26,3 +26,11 @@
     background-color: lighten($color-primary, 8%);
   }
 }
+
+.btn-disabled {
+  background-color: $color-bg-disabled;
+
+  &:hover {
+    background-color: $color-bg-disabled;
+  }
+}
