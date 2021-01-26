@@ -21,12 +21,22 @@ const myModule = (() => {
 
   let playersPoints = [];
 
-  const initiateGame = ( numberOfPlayers = 2) => {
-    deck = createDeck();
+  const initiatePlayers = ( numberOfPlayers = 2) => {
     playersPoints = [];
     for (let i = 0; i < numberOfPlayers; i++) {
       playersPoints.push(0);
     }
+  };
+
+  const startNewGame = () => {
+    initiatePlayers();
+
+    deck = createDeck();
+
+    htmlPoints.forEach(player => player.innerText = 0 + " points");
+    divPlayersCards.forEach(player => player.innerHTML = "");
+
+    enableButtons();
   };
 
   /* Function to shuffle the deck: this loop iterates over an array from back to front bypassing index 0. Each iteration generates a random number (index variable) ranging between 0 and the counter variable (last item), and then swaps both values to suffle them.*/
@@ -100,12 +110,9 @@ const myModule = (() => {
     renderCards(card, 0);
 
     if (playerPoints > 21) {
-      console.warn("Im so sorry, you lost. But keep trying!");
-      btnAsk.disabled = true;
-      btnStop.disabled = true;
+      disableButtons();
       computersTurn(playerPoints);
     } else if (playerPoints === 21) {
-      console.warn("Wow 21 points! You win this time :)");
       disableButtons();
       computersTurn(playerPoints);
     }
@@ -163,15 +170,6 @@ const myModule = (() => {
     }, 100);
 
     disableButtons();
-  };
-
-  const startNewGame = () => {
-    initiateGame();
-
-    htmlPoints.forEach(player => player.innerText = 0);
-    divPlayersCards.forEach(player => player.innerHTML = "");
-
-    enableButtons();
   };
 
   // Events
