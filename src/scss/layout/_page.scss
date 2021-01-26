@@ -1,8 +1,7 @@
 body {
-  padding: 1.5rem;
+  // padding: 1.5rem;
   height: 100vh;
-  background-color: $color-bg;
   font-family: $font-main;
-  // background-color: rgb(32, 32, 32);
-  // color: white;
+  background-color:$color-bg-terciary;
+  color: $color-font-primary;
 }

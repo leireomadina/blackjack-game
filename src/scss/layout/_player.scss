@@ -1,0 +1,19 @@
+.player-template {
+  margin-bottom: 10px;
+  @media all and (min-width: 768px) {
+    margin-right: 150px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 5px;
+  }
+
+  &__points {
+    margin-left: 10px;
+  }
+}
