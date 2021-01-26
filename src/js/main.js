@@ -61,6 +61,13 @@
     return shuffledDeck;
   };
 
+  const renderCards = (card, turn) => {
+    const cardImage = document.createElement("img");
+    cardImage.src = `./assets/images/cards/${card}.png`;
+    cardImage.classList.add("card");
+    divPlayersCards[turn].append(cardImage);
+  };
+
   const askCard = () => {
     // return deck.length === 0 ? alert("There are no more cards on the deck :(") : shuffledDeck.pop
     if (shuffledDeck.length === 0) {
@@ -99,10 +106,7 @@
     // htmlPoints[0].innerText = `${playerPoints} points`;
     const playerPoints = acumulatePoints( card, 0);
 
-    const cardImage = document.createElement("img");
-    cardImage.src = `./assets/images/cards/${card}.png`;
-    cardImage.classList.add("card");
-    divPlayersCards[0].append(cardImage);
+    renderCards(card, 0);
 
     if (playerPoints > 21) {
       console.warn("Im so sorry, you lost. But keep trying!");
@@ -124,17 +128,16 @@
   };
 
   const computersTurn = (minPoints) => {
+    let computerPoints = 0;
+
     do {
       const card = askCard();
 
       // computerPoints = computerPoints + calculateCardValue(card);
       // htmlPoints[1].innerText = `${computerPoints} points`;
-      acumulatePoints( card, playersPoints.length - 1);
+      computerPoints = acumulatePoints( card, playersPoints.length - 1);
 
-      const cardImage = document.createElement("img");
-      cardImage.src = `./assets/images/cards/${card}.png`;
-      cardImage.classList.add("card");
-      divPlayersCards[1].append(cardImage);
+      renderCards(card, playersPoints.length - 1);
 
       if (minPoints > 21) {
         break;
@@ -161,6 +164,7 @@
     // playerPoints = 0;
     // computerPoints = 0;
 
+    /*
     htmlPoints[0].innerText = 0;
     htmlPoints[1].innerText = 0;
 
@@ -169,6 +173,7 @@
 
     btnAsk.disabled = false;
     btnStop.disabled = false;
+    */
   };
 
   // Events
