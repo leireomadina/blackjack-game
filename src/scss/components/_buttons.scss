@@ -1,0 +1,28 @@
+.btn {
+  width: 95px;
+  font-size: 0.9rem;
+  font-family: $font-main;
+  background-color: $color-secondary;
+  color: $color-font-primary;
+  padding: 8px 10px;
+  cursor: pointer;
+  border: 0;
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  margin-right: 5px;
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    background-color: lighten($color-secondary, 8%);
+  }
+}
+
+.btn--primary {
+  background-color: $color-primary;
+  color: $color-font-secondary;
+  font-weight: bold;
+
+  &:hover {
+    background-color: lighten($color-primary, 8%);
+  }
+}
