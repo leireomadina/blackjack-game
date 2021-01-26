@@ -18,11 +18,15 @@
   const cardTypes = ["C", "D", "H", "S"],
     specialCards = ["J", "Q", "K", "A"];
 
-  let playerPoints = 0,
-    computerPoints = 0;
+  // let playerPoints = 0,
+  //   computerPoints = 0;
+  let playersPoints = [];
 
-  const initiateGame = () => {
+  const initiateGame = ( numberOfPlayers = 2) => {
     deck = createDeck();
+    for (let i = 0; i < numberOfPlayers; i++) {
+      playersPoints.push(0);
+    }
   };
 
   /* Function to shuffle the deck: this loop iterates over an array from back to front bypassing index 0. Each iteration generates a random number (index variable) ranging between 0 and the counter variable (last item), and then swaps both values to suffle them.*/
@@ -80,6 +84,11 @@
     // console.log({ points });
     return points;
   };
+
+  const acumulatePoints = () => {
+
+  };
+
 
   const playersTurn = () => {
     const card = askCard();
