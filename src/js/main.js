@@ -127,6 +127,23 @@
     computersTurn(playerPoints);
   };
 
+  const defineWinner = () => {
+
+    const [minPoints, computerPoints] = playersPoints;
+
+    setTimeout(() => {
+      if (computerPoints === minPoints) {
+        alert("No one wins :(");
+      } else if (minPoints > 21) {
+        alert("Computer wins");
+      } else if (computerPoints > 21) {
+        alert("You win! :D");
+      } else {
+        alert("Computer wins");
+      }
+    }, 100);
+  };
+
   const computersTurn = (minPoints) => {
     let computerPoints = 0;
 
@@ -144,17 +161,7 @@
       }
     } while (computerPoints < minPoints && minPoints <= 21);
 
-    setTimeout(() => {
-      if (computerPoints === minPoints) {
-        alert("No one wins :(");
-      } else if (minPoints > 21) {
-        alert("Computer wins");
-      } else if (computerPoints > 21) {
-        alert("You win! :D");
-      } else {
-        alert("Computer wins");
-      }
-    }, 100);
+    defineWinner();
   };
 
   const startNewGame = () => {
