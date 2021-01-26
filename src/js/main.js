@@ -85,16 +85,19 @@
     return points;
   };
 
-  const acumulatePoints = () => {
-
+  // First turn = player (index 0); last turn = computer (index 1)
+  const acumulatePoints = ( card, turn ) => {
+    playersPoints[turn] = playersPoints[turn] + calculateCardValue(card);
+    htmlPoints[turn].innerText = `${playersPoints[turn]} points`;
+    return playersPoints[turn];
   };
-
 
   const playersTurn = () => {
     const card = askCard();
 
-    playerPoints = playerPoints + calculateCardValue(card);
-    htmlPoints[0].innerText = `${playerPoints} points`;
+    // playerPoints = playerPoints + calculateCardValue(card);
+    // htmlPoints[0].innerText = `${playerPoints} points`;
+    const playerPoints = acumulatePoints( card, 0);
 
     const cardImage = document.createElement("img");
     cardImage.src = `./assets/images/cards/${card}.png`;
@@ -124,8 +127,9 @@
     do {
       const card = askCard();
 
-      computerPoints = computerPoints + calculateCardValue(card);
-      htmlPoints[1].innerText = `${computerPoints} points`;
+      // computerPoints = computerPoints + calculateCardValue(card);
+      // htmlPoints[1].innerText = `${computerPoints} points`;
+      acumulatePoints( card, playersPoints.length - 1);
 
       const cardImage = document.createElement("img");
       cardImage.src = `./assets/images/cards/${card}.png`;
@@ -154,8 +158,8 @@
     // deck = createDeck();
     initiateGame();
 
-    playerPoints = 0;
-    computerPoints = 0;
+    // playerPoints = 0;
+    // computerPoints = 0;
 
     htmlPoints[0].innerText = 0;
     htmlPoints[1].innerText = 0;
