@@ -29,8 +29,8 @@ const myModule = (() => {
 
   const handleInstructionsBtn = () => {
     divInstructions.classList.contains("collapsed")
-    ? (btnInstructions.innerHTML = "Show")
-    : (btnInstructions.innerHTML = "Hide");
+    ? (btnInstructions.innerHTML = "Show instructions")
+    : (btnInstructions.innerHTML = "Hide instructions");
   };
 
   const initiatePlayers = (numberOfPlayers = 2) => {
@@ -175,11 +175,11 @@ const myModule = (() => {
       if (computerPoints === minPoints) {
         alert("No one wins :(");
       } else if (minPoints > 21) {
-        alert("Computer wins");
+        alert("Bender wins");
       } else if (computerPoints > 21) {
-        alert("You win! :D");
+        alert("You win!");
       } else {
-        alert("Computer wins");
+        alert("Bender wins");
       }
     }, 100);
 

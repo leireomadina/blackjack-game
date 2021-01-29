@@ -36,8 +36,8 @@
 }
 
 .btn-instructions {
-  height: 22px;
-  padding: 3px 10px;
+  // height: 22px;
+  padding: 5px 10px;
   cursor: pointer;
   color: $color-font-primary;
   font-family: $font-main;
@@ -46,6 +46,7 @@
   border-radius: 2px;
   font-weight: bold;
   transition: all 0.3s ease-out;
+  margin-bottom: 8px;
 
   &:hover {
     background-color: $color-bg-primary;

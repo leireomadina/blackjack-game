@@ -1,20 +1,22 @@
 <section class="instructions">
   <div class="instructions__header">
-    <h3 class="instructions__title">Instructions</h3>
-    <button class="btn-instructions js-instructions-btn">Hide</button>
+    <h3 class="instructions__title hidden">Instructions</h3>
+    <button class="btn-instructions js-instructions-btn">➜ Hide instructions</button>
   </div>
   <div class="instructions__container">
+    <p class="instructions__text"> Hi meatbag, I'm Bender. Welcome to Mars Vegas.
+      Let's play some <span class="instructions__text--highlighted">Blackjack!</span></p>
     <p class="instructions__text">
       The goal of this game is to get as many points as possible without going
-      over 21, because then you will automatically lose!
+      over <span class="instructions__text--highlighted">21</span>, because then you will automatically lose!
     </p>
     <p class="instructions__text">
-      Press the 'New Game' button to start: you can ask for more cards from the
-      deck using the 'Ask Card' button and stand whenever you want by pressing
-      the 'Stop' button. Then it will be the computer's turn!
+      Press the <span class="instructions__text--highlighted">'New Game'</span> button to start: you can ask for more cards from the
+      deck using the <span class="instructions__text--highlighted">'Ask Card'</span> button and stand whenever you want by pressing
+      the <span class="instructions__text--highlighted">'Stop'</span> button. Then it will be my turn to beat you! These are the card values:
     </p>
     <article>
-      <p class="instructions__text">These are the card values:</p>
+      <p class="instructions__text"></p>
       <ul class="instructions__list">
         <li class="instructions__list-item">Ace (A): is worth 11 points.</li>
         <li class="instructions__list-item">
@@ -24,10 +26,10 @@
           Rest of the deck: are worth the points that appear on the card.
         </li>
         <li class="instructions__list-item">
-          The card suit has no influence in the outcome.
+          The card suit (♠️, ♥️, ♣️, ♦️) has no influence in the outcome.
         </li>
       </ul>
     </article>
-    <p class="instructions__text">Can you beat the computer? 😏</p>
+    <p class="instructions__text">Do you think you can beat me?</p>
   </div>
 </section>
