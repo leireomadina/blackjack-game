@@ -179,7 +179,7 @@ const myModule = (() => {
 
   // Accessible code
   return {
-    newGame: initiateGame
+    newGame: startNewGame
   };
 
 })();
