@@ -1,18 +1,33 @@
-<section>
-  <h3>Instructions</h3>
-  <p>
-    The goal of this game is to get as many points as possible without going over 21, because then you will automatically lose! 
-  </p>
-  <p>Press the 'New Game' button to start: you can ask for more cards from the deck using the 'Ask Card' button and stand whenever you want by pressing the 'Stop' button. Then it will be the computer's turn!</p>
-  <article>
-    <p>These are the card values:</p>
-    <ul>
-      <li>Ace (A): is worth 11 points.</li>
-      <li>Jack (J), Queen(Q) and Knight (K): are worth 10 points.</li>
-      <li>Rest of the deck: are worth the points that appear on the card.</li>
-      <li>The card suit has no influence in the outcome.</li>
-    </ul>
-  </article>
-    <p>Can you beat the computer? 😏</p>
-  </article>
+<section class="instructions">
+  <div class="instructions__header">
+    <h3 class="instructions__title">Instructions</h3>
+    <button class="btn-instructions js-instructions-btn">Hide</button>
+  </div>
+  <div class="instructions__container">
+    <p class="instructions__text">
+      The goal of this game is to get as many points as possible without going
+      over 21, because then you will automatically lose!
+    </p>
+    <p class="instructions__text">
+      Press the 'New Game' button to start: you can ask for more cards from the
+      deck using the 'Ask Card' button and stand whenever you want by pressing
+      the 'Stop' button. Then it will be the computer's turn!
+    </p>
+    <article>
+      <p class="instructions__text">These are the card values:</p>
+      <ul class="instructions__list">
+        <li class="instructions__list-item">Ace (A): is worth 11 points.</li>
+        <li class="instructions__list-item">
+          Court cards (J, Q and K): are worth 10 points.
+        </li>
+        <li class="instructions__list-item">
+          Rest of the deck: are worth the points that appear on the card.
+        </li>
+        <li class="instructions__list-item">
+          The card suit has no influence in the outcome.
+        </li>
+      </ul>
+    </article>
+    <p class="instructions__text">Can you beat the computer? 😏</p>
+  </div>
 </section>

@@ -1,15 +1,16 @@
 // Module pattern to avoid game cheating
 const myModule = (() => {
-
   "use strict";
-  
+
   // DOM elements
   const btnNew = document.querySelector(".js-new-button"),
     btnAsk = document.querySelector(".js-ask-button"),
-    btnStop = document.querySelector(".js-stop-button");
+    btnStop = document.querySelector(".js-stop-button"),
+    btnInstructions = document.querySelector(".js-instructions-btn");
 
   const htmlPoints = document.querySelectorAll(".js-players-points");
   const divPlayersCards = document.querySelectorAll(".cards-container");
+  const divInstructions = document.querySelector(".instructions__container");
 
   // Variable declarations
   let deck = [];
@@ -21,7 +22,18 @@ const myModule = (() => {
 
   let playersPoints = [];
 
-  const initiatePlayers = ( numberOfPlayers = 2) => {
+  const handleInstructionsContainer = () => {
+    divInstructions.classList.toggle("collapsed");
+    handleInstructionsBtn();
+  };
+
+  const handleInstructionsBtn = () => {
+    divInstructions.classList.contains("collapsed")
+    ? (btnInstructions.innerHTML = "Show")
+    : (btnInstructions.innerHTML = "Hide");
+  };
+
+  const initiatePlayers = (numberOfPlayers = 2) => {
     playersPoints = [];
     for (let i = 0; i < numberOfPlayers; i++) {
       playersPoints.push(0);
@@ -33,8 +45,8 @@ const myModule = (() => {
 
     deck = createDeck();
 
-    htmlPoints.forEach(player => player.innerText = 0 + " points");
-    divPlayersCards.forEach(player => player.innerHTML = "");
+    htmlPoints.forEach((player) => (player.innerText = 0 + " points"));
+    divPlayersCards.forEach((player) => (player.innerHTML = ""));
 
     enableButtons();
   };
@@ -78,6 +90,9 @@ const myModule = (() => {
   };
 
   const askCard = () => {
+    divInstructions.classList.add("collapsed");
+    handleInstructionsBtn();
+
     if (shuffledDeck.length === 0) {
       alert("There are no more cards on the deck :(");
     }
@@ -98,7 +113,7 @@ const myModule = (() => {
   };
 
   // First turn = player (index 0); last turn = computer (index 1)
-  const acumulatePoints = ( card, turn ) => {
+  const acumulatePoints = (card, turn) => {
     playersPoints[turn] = playersPoints[turn] + calculateCardValue(card);
     htmlPoints[turn].innerText = `${playersPoints[turn]} points`;
     return playersPoints[turn];
@@ -106,7 +121,7 @@ const myModule = (() => {
 
   const playersTurn = () => {
     const card = askCard();
-    const playerPoints = acumulatePoints( card, 0);
+    const playerPoints = acumulatePoints(card, 0);
     renderCards(card, 0);
 
     if (playerPoints > 21) {
@@ -142,7 +157,7 @@ const myModule = (() => {
 
     do {
       const card = askCard();
-      computerPoints = acumulatePoints( card, playersPoints.length - 1);
+      computerPoints = acumulatePoints(card, playersPoints.length - 1);
       renderCards(card, playersPoints.length - 1);
 
       if (minPoints > 21) {
@@ -154,7 +169,6 @@ const myModule = (() => {
   };
 
   const defineWinner = () => {
-
     const [minPoints, computerPoints] = playersPoints;
 
     setTimeout(() => {
@@ -176,10 +190,10 @@ const myModule = (() => {
   btnAsk.addEventListener("click", playersTurn);
   btnStop.addEventListener("click", handleFinishTurn);
   btnNew.addEventListener("click", startNewGame);
+  btnInstructions.addEventListener("click", handleInstructionsContainer);
 
   // Accessible code
   return {
-    newGame: startNewGame
+    newGame: startNewGame,
   };
-
 })();

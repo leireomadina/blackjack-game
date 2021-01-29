@@ -1,0 +1,41 @@
+.instructions {
+  font-size: 0.9rem;
+  max-width: 700px;
+  // background-color: $color-bg-secondary;
+  // color: $color-font-secondary;
+
+  &__header {
+    // border: 1px solid red;
+    display: flex;
+    // justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    padding-bottom: 3px;
+    border-bottom: 2px solid white;
+    margin: 0 30px 8px 0;
+  }
+
+  &__container {
+    opacity: 1;
+    transition: all 0.3s ease-out;
+  }
+
+  &__text {
+    margin-bottom: 6px;
+  }
+
+  &__list {
+    margin-bottom: 6px;
+  }
+
+  &__list-item {
+    margin-left: 15px;
+  }
+}
+
+.collapsed {
+  opacity: 0;
+}
