@@ -6,22 +6,24 @@ const myModule = (() => {
   const btnNew = document.querySelector(".js-new-button"),
     btnAsk = document.querySelector(".js-ask-button"),
     btnStop = document.querySelector(".js-stop-button"),
-    btnInstructions = document.querySelector(".js-instructions-btn");
+    btnInstructions = document.querySelector(".js-instructions-btn"),
+    btnModal = document.querySelector(".js-modal-btn");
 
   const htmlPoints = document.querySelectorAll(".js-players-points");
   const divPlayersCards = document.querySelectorAll(".cards-container");
   const divInstructions = document.querySelector(".instructions__container");
-  const divModal = document.querySelector(".modal");
+  const divModal = document.querySelector(".modal"),
+    modalImage = document.querySelector(".modal__image"),
+    modalTitle = document.querySelector(".modal__title");
 
   // Variable declarations
   let deck = [];
   let shuffledDeck = [];
+  let playersPoints = [];
 
   // Creating deck cards. C: Clubs, D: Diamonds, H: Hearts, S: Spades
   const cardTypes = ["C", "D", "H", "S"],
     specialCards = ["J", "Q", "K", "A"];
-
-  let playersPoints = [];
 
   const handleInstructionsContainer = () => {
     divInstructions.classList.toggle("collapsed");
@@ -171,20 +173,35 @@ const myModule = (() => {
 
   const defineWinner = () => {
     const [minPoints, computerPoints] = playersPoints;
+    // divModal.classList.toggle("hidden");
 
     setTimeout(() => {
       if (computerPoints === minPoints) {
+        // modalTitle.innerText = "No one wins :(";
+        // modalImage.src= "./assets/images/bender-losses.jpg";
         alert("No one wins :(");
       } else if (minPoints > 21) {
         alert("Bender wins");
+        // modalTitle.innerText = "Bender wins";
       } else if (computerPoints > 21) {
         alert("You win!");
+        // modalTitle.innerHTML = "You win!";
+        // modalImage.src= "./assets/images/bender-losses.jpg";
       } else {
         alert("Bender wins");
+        // modalTitle.innerText = "Bender wins";
       }
-    }, 100);
+    }, 200);
 
     disableButtons();
+  };
+
+  const handleGameEnd = () => {
+    divModal.classList.toggle("hidden");
+    startNewGame();
+  };
+
+  const acumulateRounds = () => {
   };
 
   // Events
@@ -192,6 +209,7 @@ const myModule = (() => {
   btnStop.addEventListener("click", handleFinishTurn);
   btnNew.addEventListener("click", startNewGame);
   btnInstructions.addEventListener("click", handleInstructionsContainer);
+  btnModal.addEventListener("click", handleGameEnd);
 
   // Accessible code
   return {
