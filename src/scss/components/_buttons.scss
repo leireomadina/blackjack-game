@@ -37,12 +37,12 @@
 
 .btn-instructions {
   // height: 22px;
-  padding: 5px 10px;
+  padding: 8px 10px;
   cursor: pointer;
-  color: $color-font-primary;
+  color: $color-font-secondary;
   font-family: $font-main;
-  background-color: $color-bg-primary;
-  border: none;
+  background-color: $color-bg-secondary;
+  border: 2px solid $color-font-secondary;
   border-radius: 2px;
   font-weight: bold;
   transition: all 0.3s ease-out;

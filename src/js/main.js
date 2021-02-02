@@ -11,6 +11,7 @@ const myModule = (() => {
   const htmlPoints = document.querySelectorAll(".js-players-points");
   const divPlayersCards = document.querySelectorAll(".cards-container");
   const divInstructions = document.querySelector(".instructions__container");
+  const divModal = document.querySelector(".modal");
 
   // Variable declarations
   let deck = [];
@@ -29,8 +30,8 @@ const myModule = (() => {
 
   const handleInstructionsBtn = () => {
     divInstructions.classList.contains("collapsed")
-    ? (btnInstructions.innerHTML = "Show instructions")
-    : (btnInstructions.innerHTML = "Hide instructions");
+    ? (btnInstructions.innerHTML = "➜  Show instructions")
+    : (btnInstructions.innerHTML = "➜  Hide instructions");
   };
 
   const initiatePlayers = (numberOfPlayers = 2) => {
