@@ -13,18 +13,18 @@
   <body>
     <div class="page">
       <header class="header">
+        <img src="./assets/images/bender-logo2.png" alt="Bender logo" title="Bender logo" class="header__image">
         <h1 class="header__title">Blackjack</h1>
-        <!-- <p class="header__subtitle">Can you beat the computer? 😏</p> -->
       </header>
 
       <main class="main">
         <section class="options">
           <div class="options__container">
             <button class="btn btn--primary js-new-button" type="button">New Game</button>
-            <button class="btn btn--secondary js-ask-button" type="button">
+            <button class="btn btn--secondary btn-disabled js-ask-button"  type="button" disabled="disabled">
               Ask Card
             </button>
-            <button class="btn btn--secondary js-stop-button" type="button">
+            <button class="btn btn--secondary btn-disabled js-stop-button"  type="button" disabled="disabled">
               Stop
             </button>
           </div>
@@ -40,13 +40,57 @@
           </article>
           <article class="player-template">
             <div class="player-template__container">
-              <h2 class="player-template__title">Computer |</h2>
+              <h2 class="player-template__title">Bender |</h2>
               <p class="player-template__points js-players-points">0 points</p>
             </div>
             <div class="cards-container">
             </div>
           </article>
         </section>
+
+        <section class="instructions">
+          <div class="instructions__header">
+            <h3 class="instructions__title hidden">Instructions</h3>
+            <button class="btn-instructions js-instructions-btn">➜  Hide instructions</button>
+          </div>
+          <div class="instructions__container">
+            <p class="instructions__text"> Hi meatbag, I'm Bender. Welcome to Mars Vegas.
+              Let's play some <span class="instructions__text--highlighted">Blackjack!</span></p>
+            <p class="instructions__text">
+              The goal of this game is to get as many points as possible without going
+              over <span class="instructions__text--highlighted">21</span>, because then you will automatically lose!
+            </p>
+            <p class="instructions__text">
+              Press the <span class="instructions__text--highlighted">'New Game'</span> button to start: you can ask for more cards from the
+              deck using the <span class="instructions__text--highlighted">'Ask Card'</span> button and stand whenever you want by pressing
+              the <span class="instructions__text--highlighted">'Stop'</span> button. Then it will be my turn to beat you! These are the card values:
+            </p>
+            <article>
+              <p class="instructions__text"></p>
+              <ul class="instructions__list">
+                <li class="instructions__list-item">Ace (A): 11 points.</li>
+                <li class="instructions__list-item">
+                  Court cards (J, Q and K): 10 points.
+                </li>
+                <li class="instructions__list-item">
+                  Rest of the deck: card points.
+                </li>
+                <li class="instructions__list-item">
+                  The card suit (♠️, ♥️, ♣️, ♦️) has no influence.
+                </li>
+              </ul>
+            </article>
+            <p class="instructions__text">Do you think you can beat me?</p>
+          </div>
+        </section>
+
+        <div class="modal hidden">
+          <div class="modal__container">
+            <img src="./assets/images/bender-wins.jpg" alt="Bender wins" title="Bender wins" class="modal__image">
+            <h3 class="modal__title"></h3>
+            <button type="button" class="btn btn--primary js-modal-btn">Play again</button>
+          </div>
+        </div>
 
       </main>
 
