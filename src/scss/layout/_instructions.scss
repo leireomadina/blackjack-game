@@ -1,5 +1,5 @@
 .instructions {
-  font-size: 0.9rem;
+  font-size: 1rem;
   max-width: 700px;
  
   &__title {
@@ -10,13 +10,14 @@
   }
 
   &__container {
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.3s ease-out;
+    // opacity: 1;
+    // visibility: visible;
+    // transition: all 0.5s ease-out;
+    padding: 10px 0;
   }
 
   &__text {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 
     &--highlighted {
      position: relative;
@@ -36,17 +37,18 @@
   }
 
   &__list {
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
 
   &__list-item {
-    margin-left: 15px;
+    margin-left: 20px;
   }
 }
 
 .collapsed {
-  opacity: 0;
-  visibility: hidden;
+  display: none;
+  // opacity: 0;
+  // visibility: hidden;
 }
 
 .hidden {

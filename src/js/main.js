@@ -32,8 +32,8 @@ const myModule = (() => {
 
   const handleInstructionsBtn = () => {
     divInstructions.classList.contains("collapsed")
-    ? (btnInstructions.innerHTML = "➜  Show instructions")
-    : (btnInstructions.innerHTML = "➜  Hide instructions");
+    ? (btnInstructions.innerHTML = "Show instructions")
+    : (btnInstructions.innerHTML = "Hide instructions");
   };
 
   const initiatePlayers = (numberOfPlayers = 2) => {

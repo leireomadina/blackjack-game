@@ -1,9 +1,10 @@
 .header {
+  grid-area: header;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 15px;
   padding: 1rem;
   background-color: $color-bg-secondary;
   border-bottom: 3px solid black;
@@ -12,14 +13,11 @@
     font-family: $font-main;
     font-size: 2.5rem;
     color: $color-font-secondary;
-    // text-transform: uppercase;
   }
 
   &__image {
     height: 45px;
     width: auto;
     transform: translateX(-30px);    
-
-    // margin-right: 30px;
   }
 }
