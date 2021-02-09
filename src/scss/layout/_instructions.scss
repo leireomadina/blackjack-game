@@ -1,6 +1,20 @@
 .instructions {
+  // border: 1px solid blue;
   font-size: 1rem;
   max-width: 700px;
+
+  @media all and (min-width: 768px) {
+    margin: 0 auto;
+  }
+
+  @media all and (min-width: 1200px) {
+    // position: absolute;
+    // top: 50px;
+    // right: 0;
+    // width: 30%;
+    // border: 1px solid blue;
+    // height: 100%;
+  }
  
   &__title {
     font-size: 1.2rem;
