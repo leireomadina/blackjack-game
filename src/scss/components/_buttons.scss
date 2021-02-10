@@ -61,6 +61,10 @@
   transition: all 0.3s ease-out;
   margin-bottom: 10px;
 
+  @media all and (min-width: 1200px) {
+    margin-left: 10px;
+  }
+
   &::before {
     content: "➜";
     margin-right: 10px;

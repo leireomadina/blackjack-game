@@ -1,5 +1,22 @@
 .player-template {
   margin-bottom: 10px;
+
+  @media all and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+
+  &:first-child {
+    @media all and (min-width: 768px) {
+      grid-area: player;
+    }
+  }
+
+  &:last-child {
+    @media all and (min-width: 768px) {
+      grid-area: computer;
+    }
+  }
+
   @media all and (min-width: 768px) {
     margin-right: 150px;
   }
@@ -11,6 +28,7 @@
   }
 
   &__title {
+    font-size: 1.5rem;
   }
 
   &__points {

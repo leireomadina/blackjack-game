@@ -1,19 +1,16 @@
 .instructions {
-  // border: 1px solid blue;
   font-size: 1rem;
-  max-width: 700px;
 
   @media all and (min-width: 768px) {
     margin: 0 auto;
+      max-width: 800px;
+
   }
 
   @media all and (min-width: 1200px) {
-    // position: absolute;
-    // top: 50px;
-    // right: 0;
-    // width: 30%;
-    // border: 1px solid blue;
-    // height: 100%;
+    grid-area: instructions;
+    margin: inherit;
+    min-width: 350px;
   }
  
   &__title {
@@ -28,10 +25,18 @@
     // visibility: visible;
     // transition: all 0.5s ease-out;
     padding: 10px 0;
+    @media all and (min-width: 1200px) {
+      padding: 15px;
+      margin-left: 10px;
+    }
   }
 
   &__text {
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+
+    @media all and (min-width: 1200px) {
+      padding-bottom: 15px;
+    }
 
     &--highlighted {
      position: relative;
@@ -51,11 +56,26 @@
   }
 
   &__list {
-    margin-bottom: 10px;
+    padding-bottom: 10px;
+    @media all and (min-width: 1200px) {
+      padding-bottom: 15px;
+    }
   }
 
   &__list-item {
     margin-left: 20px;
+  }
+
+  &__image {
+    height: 150px;
+    width: auto;
+    @media all and (min-width: 1200px) {
+      height: 180px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid blue;
+    }
+   
   }
 }
 

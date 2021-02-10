@@ -1,4 +1,8 @@
 .options {
+  @media all and (min-width: 768px) {
+    grid-area: options;
+  }
+
   &__container {
     display: flex;
     justify-content: space-around;

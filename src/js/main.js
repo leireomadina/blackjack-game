@@ -93,7 +93,7 @@ const myModule = (() => {
   };
 
   const askCard = () => {
-    divInstructions.classList.add("collapsed");
+    // divInstructions.classList.add("collapsed");
     handleInstructionsBtn();
 
     if (shuffledDeck.length === 0) {
