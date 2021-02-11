@@ -1,19 +1,36 @@
 .player-template {
   margin-bottom: 10px;
+  min-height: 190px;
   @media all and (min-width: 768px) {
-    margin-right: 150px;
+    margin-bottom: 20px;
+    min-height: 270px;
+  }
+  @media all and (min-width: 1200px) {
+    min-height: 300px;
   }
 
   &__container {
+    padding-bottom: 10px;
     display: flex;
     align-items: center;
+    grid-area: table;
   }
 
   &__title {
-    margin-bottom: 5px;
+    font-size: 1.5rem;
+    margin-right: 5px;
   }
 
   &__points {
     margin-left: 10px;
+    font-weight: bold;
+    padding: 5px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 3px;
+    color: $color-font-secondary;
   }
 }

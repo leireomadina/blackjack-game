@@ -1,6 +1,10 @@
 .btn {
-  width: 90px;
-  font-size: 0.9rem;
+  height: 34px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
   font-family: $font-main;
   background-color: $color-secondary;
   color: $color-font-primary;
@@ -9,8 +13,12 @@
   border: 0;
   box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  margin-right: 8px;
   transition: all 0.3s ease-out;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
 
   &:hover {
     background-color: lighten($color-secondary, 8%);
@@ -36,8 +44,13 @@
 }
 
 .btn-instructions {
-  // height: 22px;
-  padding: 8px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+  width: 100%;
+  font-size: 1rem;
+  padding: 8px;
   cursor: pointer;
   color: $color-font-secondary;
   font-family: $font-main;
@@ -46,7 +59,17 @@
   border-radius: 2px;
   font-weight: bold;
   transition: all 0.3s ease-out;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+
+  @media all and (min-width: 1200px) {
+    margin-left: 10px;
+  }
+
+  &::before {
+    content: "➜";
+    margin-right: 10px;
+    font-size: 1rem;
+  }
 
   &:hover {
     background-color: $color-bg-primary;

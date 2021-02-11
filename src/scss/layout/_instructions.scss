@@ -1,6 +1,15 @@
 .instructions {
-  font-size: 0.9rem;
-  max-width: 700px;
+  font-size: 1rem;
+  @media all and (min-width: 768px) {
+    margin: 0 auto;
+      max-width: 800px;
+
+  }
+  @media all and (min-width: 1200px) {
+    grid-area: instructions;
+    margin: inherit;
+    min-width: 350px;
+  }
  
   &__title {
     font-size: 1.2rem;
@@ -10,13 +19,21 @@
   }
 
   &__container {
-    opacity: 1;
-    visibility: visible;
-    transition: all 0.3s ease-out;
+    // opacity: 1;
+    // visibility: visible;
+    // transition: all 0.5s ease-out;
+    padding: 10px 0;
+    @media all and (min-width: 1200px) {
+      padding: 15px;
+      margin-left: 10px;
+    }
   }
 
   &__text {
-    margin-bottom: 6px;
+    padding-bottom: 10px;
+    @media all and (min-width: 1200px) {
+      padding-bottom: 15px;
+    }
 
     &--highlighted {
      position: relative;
@@ -36,17 +53,33 @@
   }
 
   &__list {
-    margin-bottom: 6px;
+    padding-bottom: 10px;
+    @media all and (min-width: 1200px) {
+      padding-bottom: 15px;
+    }
   }
 
   &__list-item {
-    margin-left: 15px;
+    margin-left: 20px;
+  }
+
+  &__image {
+    height: 150px;
+    width: auto;
+    @media all and (min-width: 1200px) {
+      height: 180px;
+    display: block;
+    margin: 0 auto;
+    border: 1px solid blue;
+    }
+   
   }
 }
 
 .collapsed {
-  opacity: 0;
-  visibility: hidden;
+  display: none;
+  // opacity: 0;
+  // visibility: hidden;
 }
 
 .hidden {
