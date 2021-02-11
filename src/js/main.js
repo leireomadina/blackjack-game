@@ -12,14 +12,16 @@ const myModule = (() => {
   const htmlPoints = document.querySelectorAll(".js-players-points");
   const divPlayersCards = document.querySelectorAll(".cards-container");
   const divInstructions = document.querySelector(".instructions__container");
+  const htmlPlayersCounter = document.querySelectorAll(".js-players-counter");
   const divModal = document.querySelector(".modal"),
-    modalImage = document.querySelector(".modal__image"),
-    modalTitle = document.querySelector(".modal__title");
+    modalImage = document.querySelector(".js-modal-image"),
+    modalTitle = document.querySelector(".js-modal-title");
 
   // Variable declarations
   let deck = [];
   let shuffledDeck = [];
   let playersPoints = [];
+  let playersWins = [0, 0]; // improve this
 
   // Creating deck cards. C: Clubs, D: Diamonds, H: Hearts, S: Spades
   const cardTypes = ["C", "D", "H", "S"],
@@ -41,14 +43,18 @@ const myModule = (() => {
     for (let i = 0; i < numberOfPlayers; i++) {
       playersPoints.push(0);
     }
+    // for (let i = 0; i < numberOfPlayers; i++) {
+    //   playersWins.push(0);
+    //   console.log("games won", playersWins);
+    // }
   };
 
-  const startNewGame = () => {
+  const startNewRound = () => {
     initiatePlayers();
 
     deck = createDeck();
 
-    htmlPoints.forEach((player) => (player.innerText = 0 + " points"));
+    htmlPoints.forEach((player) => (player.innerText = "Points: " + 0));
     divPlayersCards.forEach((player) => (player.innerHTML = ""));
 
     enableButtons();
@@ -118,7 +124,7 @@ const myModule = (() => {
   // First turn = player (index 0); last turn = computer (index 1)
   const acumulatePoints = (card, turn) => {
     playersPoints[turn] = playersPoints[turn] + calculateCardValue(card);
-    htmlPoints[turn].innerText = `${playersPoints[turn]} points`;
+    htmlPoints[turn].innerText = `Points: ${playersPoints[turn]}`;
     return playersPoints[turn];
   };
 
@@ -168,51 +174,66 @@ const myModule = (() => {
       }
     } while (computerPoints < minPoints && minPoints <= 21);
 
-    defineWinner();
+    defineRoundWinner();
   };
 
-  const defineWinner = () => {
+  const defineRoundWinner = () => {
     const [minPoints, computerPoints] = playersPoints;
-    // divModal.classList.toggle("hidden");
 
     setTimeout(() => {
       if (computerPoints === minPoints) {
-        // modalTitle.innerText = "No one wins :(";
-        // modalImage.src= "./assets/images/bender-losses.jpg";
-        alert("No one wins :(");
+        alert("No one wins this round :(");
       } else if (minPoints > 21) {
-        alert("Bender wins");
-        // modalTitle.innerText = "Bender wins";
+        alert("Bender wins this round");
+        acumulateWins(1);
       } else if (computerPoints > 21) {
-        alert("You win!");
-        // modalTitle.innerHTML = "You win!";
-        // modalImage.src= "./assets/images/bender-losses.jpg";
+        alert("You win this round!");
+        acumulateWins(0);
       } else {
-        alert("Bender wins");
-        // modalTitle.innerText = "Bender wins";
+        alert("Bender wins this round");
+        acumulateWins(1);
       }
-    }, 200);
+      defineFinalWinner();
+    }, 100);
 
     disableButtons();
   };
 
   const handleGameEnd = () => {
     divModal.classList.toggle("hidden");
-    startNewGame();
+    startNewRound();
   };
 
-  const acumulateRounds = () => {
+  const acumulateWins = (turn) => {
+    playersWins[turn]++;
+    htmlPlayersCounter[turn].innerText = `Wins: ${playersWins[turn]}`;
+  };
+
+  const defineFinalWinner = () => {
+    if(playersWins[0] === 2) { // player wins
+      modalTitle.innerText = "You win this time";
+      modalImage.src= "./assets/images/bender-losses.jpg";
+    } else if (playersWins[1] === 2) { // computer wins
+      modalTitle.innerText = "Bender wins";
+      modalImage.src= "./assets/images/bender-wins.jpg";
+    }
+
+    if(playersWins[0] === 2 || playersWins[1] === 2) {
+      divModal.classList.toggle("hidden");
+      playersWins = [0, 0];
+      htmlPlayersCounter.forEach(player => player.innerText = "Wins: 0");
+    }
   };
 
   // Events
   btnAsk.addEventListener("click", playersTurn);
   btnStop.addEventListener("click", handleFinishTurn);
-  btnNew.addEventListener("click", startNewGame);
+  btnNew.addEventListener("click", startNewRound);
   btnInstructions.addEventListener("click", handleInstructionsContainer);
   btnModal.addEventListener("click", handleGameEnd);
 
   // Accessible code
   return {
-    newGame: startNewGame,
+    newGame: startNewRound,
   };
 })();
