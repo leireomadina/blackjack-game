@@ -13,7 +13,7 @@ const myModule = (() => {
   const divPlayersCards = document.querySelectorAll(".cards-container");
   const divInstructions = document.querySelector(".instructions__container");
   const htmlPlayersCounter = document.querySelectorAll(".js-players-counter");
-  const divModal = document.querySelector(".modal"),
+  const divModal = document.querySelector(".js-modal"),
     modalImage = document.querySelector(".js-modal-image"),
     modalTitle = document.querySelector(".js-modal-title");
 
@@ -210,15 +210,16 @@ const myModule = (() => {
   };
 
   const defineFinalWinner = () => {
-    if(playersWins[0] === 2) { // player wins
+    console.log(playersWins);
+    if(playersWins[0] === 5) { // player wins
       modalTitle.innerText = "You win this time";
       modalImage.src= "./assets/images/bender-losses.jpg";
-    } else if (playersWins[1] === 2) { // computer wins
+    } else if (playersWins[1] === 5) { // computer wins
       modalTitle.innerText = "Bender wins";
       modalImage.src= "./assets/images/bender-wins.jpg";
     }
 
-    if(playersWins[0] === 2 || playersWins[1] === 2) {
+    if(playersWins[0] === 5 || playersWins[1] === 5) {
       divModal.classList.toggle("hidden");
       playersWins = [0, 0];
       htmlPlayersCounter.forEach(player => player.innerText = "Wins: 0");

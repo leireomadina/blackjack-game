@@ -1,22 +1,20 @@
 .main {
   grid-area: main;
   padding: 0 16px;
-  
   @media all and (min-width: 768px) {
     width: 100%;
     margin: 0 auto;
     padding: 0 30px;
   }
-
   @media all and (min-width: 1200px) {
     display: grid;
     grid-template-areas: "options instructions"
-                          "player1 instructions"
-                          "computer instructions";
+                          "table instructions"
+                          "table instructions";
     grid-template-columns: 1fr 350px;
-    grid-template-rows: auto 50% 50%;
+    grid-template-rows: auto 1fr 1fr;
     max-width: 1100px;
-    position: relative;
+    position: relative; 
   }
   
 }

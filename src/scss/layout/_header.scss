@@ -7,8 +7,7 @@
   margin-bottom: 15px;
   padding: 1rem;
   background-color: $color-bg-secondary;
-  border-bottom: 3px solid black;
-
+  border-bottom: 3px solid black; 
   @media all and (min-width: 768px) {
     margin-bottom: 30px;
     padding: 1.2rem;
@@ -18,7 +17,6 @@
     font-family: $font-main;
     font-size: 1.5rem;
     color: $color-font-secondary;
-
     @media all and (min-width: 768px) {
       font-size: 2.2rem;
     }
@@ -31,7 +29,6 @@
     height: 45px;
     width: auto;
     margin-right: 10px;
-
     @media all and (min-width: 768px) {
       margin-right: 25px;
       height: 50px;

@@ -1,12 +1,10 @@
 .instructions {
   font-size: 1rem;
-
   @media all and (min-width: 768px) {
     margin: 0 auto;
       max-width: 800px;
 
   }
-
   @media all and (min-width: 1200px) {
     grid-area: instructions;
     margin: inherit;
@@ -33,7 +31,6 @@
 
   &__text {
     padding-bottom: 10px;
-
     @media all and (min-width: 1200px) {
       padding-bottom: 15px;
     }
