@@ -21,7 +21,7 @@ const myModule = (() => {
   let deck = [];
   let shuffledDeck = [];
   let playersPoints = [];
-  let playersWins = [0, 0]; // improve this
+  let playersWins = [0, 0];
 
   // Creating deck cards. C: Clubs, D: Diamonds, H: Hearts, S: Spades
   const cardTypes = ["C", "D", "H", "S"],
@@ -99,7 +99,6 @@ const myModule = (() => {
   };
 
   const askCard = () => {
-    // divInstructions.classList.add("collapsed");
     handleInstructionsBtn();
 
     if (shuffledDeck.length === 0) {
@@ -194,7 +193,7 @@ const myModule = (() => {
         acumulateWins(1);
       }
       defineFinalWinner();
-    }, 100);
+    }, 300);
 
     disableButtons();
   };
