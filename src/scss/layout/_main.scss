@@ -9,10 +9,9 @@
   @media all and (min-width: 1200px) {
     display: grid;
     grid-template-areas: "options instructions"
-                          "table instructions"
                           "table instructions";
     grid-template-columns: 1fr 350px;
-    grid-template-rows: auto 1fr 1fr;
+    grid-template-rows: auto 1fr;
     max-width: 1100px;
     position: relative; 
   }
