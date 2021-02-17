@@ -2,7 +2,7 @@
 
 El objetivo es desarrollar un juego de cartas llamado **Blackjack**, también conocido como *veintinuo*, donde el usuario puede competir contra el ordenador. El juego consiste en sumar mediante cartas un valor lo más cercano posible a 21 pero sin pasarse.
 
-El proyecto forma parte de un curso de Udemy de Fernando Herrera sobre JavaScript ES6. Por tanto el código base es de su autoría, pero he introducido modificaciones propias, mejoras y refactorización del código: mayor semántica y accesibilidad a través de HTML5, uso de SASS y partials para trabajar de manera más ordenada y automatización de tareas mediante Gulp. Además, he modificado complementamente el **diseño UI/UX** partiendo de una idea propia y he añadidido nuevas **funcionalidades** como:
+El proyecto forma parte de un curso de Udemy de Fernando Herrera sobre JavaScript ES6. Por tanto el código base es de su autoría, pero he introducido modificaciones propias, mejoras y refactorización del código: mayor semántica y accesibilidad a través de HTML5, uso de SASS y partials para trabajar de manera más ordenada y automatización de tareas mediante Gulp. Además, he modificado complementamente el **diseño UI/UX** responsive partiendo de una idea propia y he añadidido nuevas **funcionalidades** como:
 
 - Botón de instrucciones.
 - Juego de 5 rondas con contador de victorias.
@@ -18,7 +18,7 @@ Mi intención es seguir añadiendo mejoras y más funcionalidades nuevas, de mod
 
 ### Pasos para arrancar el proyecto:
 
-> **NOTA:** Necesitas tener instalado [Node JS](https://nodejs.org/) para trabajar con este Starter Kit:
+> **NOTA:** Necesitas tener instalado [Node JS](https://nodejs.org/) para ejecutar el proyecto:
 
 1. Instala las dependencias locales ejecutando en la terminal el comando:
 
@@ -26,7 +26,7 @@ Mi intención es seguir añadiendo mejoras y más funcionalidades nuevas, de mod
 npm install
 ```
 
-2. Una vez hemos instalado las dependencias, vamos a arrancar el proyecto. Para ello ejecuta el comando:
+2. Una vez hemos instalado las dependencias, ya podemos arrancar el proyecto. Para ello ejecuta el comando:
 
 ```bash
 npm start
