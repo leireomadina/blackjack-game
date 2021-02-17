@@ -16,6 +16,12 @@ Mi intención es seguir añadiendo mejoras y más funcionalidades nuevas, de mod
 - JavaScript ES6
 - Gulp y Git
 
+### Resultado final:
+
+<img src="./src/images/mockup-mobile.png" height="400px"/>
+<img src="./src/images/mockup-desktop.png" height="400px"/>
+
+
 ### Pasos para arrancar el proyecto:
 
 > **NOTA:** Necesitas tener instalado [Node JS](https://nodejs.org/) para ejecutar el proyecto:
