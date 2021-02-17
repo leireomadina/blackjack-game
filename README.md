@@ -18,8 +18,8 @@ Mi intención es seguir añadiendo mejoras y más funcionalidades nuevas, de mod
 
 ### Resultado final:
 
-<img src="./src/images/mockup-mobile.png" height="400px"/>
-<img src="./src/images/mockup-desktop.png" height="400px"/>
+<img src="./src/images/mockup-desktop.png" height="600px"/>
+<img src="./src/images/mockup-mobile.png" height="600px"/>
 
 
 ### Pasos para arrancar el proyecto:
